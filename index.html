@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Theft Vehicles — Friendly driving adventures</title>
+    <meta name="description" content="A cheerful, kid-friendly 3D driving game." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="home-screen" class="home-screen" aria-labelledby="game-title">
+        <nav class="top-nav" aria-label="Main navigation">
+          <a class="brand" href="#home-screen" aria-label="Grand Theft Vehicles home">
+            <span class="brand-mark" aria-hidden="true">🚙</span>
+            <span>Grand Theft <strong>Vehicles</strong></span>
+          </a>
+          <div class="nav-links">
+            <a href="#destinations">Play</a>
+            <button class="sound-button" id="sound-toggle" type="button" aria-pressed="false">🔊 Sound on</button>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> Welcome to your happy little city</div>
+            <h1 id="game-title">Where will<br /><em>you</em> drive today?</h1>
+            <p class="hero-text">Pick a place, hop in, and make your own adventure. No traffic jams, no rush — just sunny streets and fun things to discover.</p>
+            <a class="primary-button" href="#destinations">Choose a destination <span>→</span></a>
+            <div class="hero-note"><span>✦</span> Built for curious drivers</div>
+          </div>
+          <div class="hero-art" aria-label="Illustration of a colorful city car">
+            <div class="sun"></div>
+            <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+            <div class="hill hill-back"></div><div class="hill hill-front"></div>
+            <div class="city-card city-card-one"><span>▥</span></div>
+            <div class="city-card city-card-two"><span>▥</span></div>
+            <div class="city-card city-card-three"><span>▥</span></div>
+            <div class="road-art"></div>
+            <div class="car-art">
+              <div class="car-shadow"></div>
+              <div class="car-body"><span class="car-window"></span><span class="car-window car-window-two"></span><span class="car-light"></span></div>
+              <span class="wheel wheel-left"></span><span class="wheel wheel-right"></span>
+              <span class="car-spark spark-one">✦</span><span class="car-spark spark-two">✧</span>
+            </div>
+            <div class="location-pill location-park">🌳 <span>Maple Park</span></div>
+            <div class="location-pill location-cafe">☕ <span>Sunny Cafe</span></div>
+          </div>
+        </div>
+
+        <section id="destinations" class="destination-section" aria-labelledby="destination-title">
+          <div class="section-heading">
+            <div><p class="section-kicker">Choose your next stop</p><h2 id="destination-title">Tiny trips, big adventures</h2></div>
+            <span class="destination-count">3 places to explore <b>✦</b></span>
+          </div>
+          <div class="destination-grid">
+            <button class="destination-card card-park" data-destination="park" type="button">
+              <span class="card-icon">🌳</span><span class="card-label">Maple Park</span><span class="card-description">Picnic spots &amp; pond ducks</span><span class="card-arrow">↗</span>
+            </button>
+            <button class="destination-card card-cafe" data-destination="cafe" type="button">
+              <span class="card-icon">☕</span><span class="card-label">Sunny Cafe</span><span class="card-description">Treats, tunes &amp; friendly faces</span><span class="card-arrow">↗</span>
+            </button>
+            <button class="destination-card card-beach" data-destination="beach" type="button">
+              <span class="card-icon">🌈</span><span class="card-label">Rainbow Beach</span><span class="card-description">Sandcastles &amp; sea breezes</span><span class="card-arrow">↗</span>
+            </button>
+          </div>
+        </section>
+
+        <footer class="home-footer"><span>Made for sunny-day explorers</span><span>♥</span><span>Everything is friendly here</span></footer>
+      </section>
+
+      <section id="game-screen" class="game-screen" aria-label="3D driving game" hidden>
+        <div id="game-canvas"></div>
+        <header class="game-hud">
+          <button class="hud-back" id="back-home" type="button" aria-label="Return to home">← <span>Exit drive</span></button>
+          <div class="hud-location"><span class="hud-location-icon" id="hud-icon">🌳</span><div><small>YOU ARE EXPLORING</small><strong id="hud-location">Maple Park</strong></div></div>
+          <div class="hud-stats"><div><span class="stat-icon">✦</span><strong id="star-count">0</strong><small>stars</small></div><div><span class="stat-icon">◷</span><strong id="drive-time">00:00</strong><small>drive time</small></div></div>
+        </header>
+        <div class="game-tip" id="game-tip"><span>☀</span><div><strong>Welcome, driver!</strong><br /><span>Use <b>WASD</b> or your arrow keys to cruise around.</span></div><button id="dismiss-tip" type="button" aria-label="Dismiss tip">×</button></div>
+        <div class="interaction-toast" id="interaction-toast"><span id="toast-icon">✦</span><span id="toast-text">You found something!</span></div>
+        <div class="game-controls"><div class="control-cluster"><span class="key key-up">▲</span><div><span class="key">◀</span><span class="key">▼</span><span class="key">▶</span></div></div><span class="controls-label">Drive around</span><button id="game-sound-toggle" class="round-hud-button" type="button" aria-label="Toggle sound">🔊</button></div>
+      </section>
+    </main>
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
