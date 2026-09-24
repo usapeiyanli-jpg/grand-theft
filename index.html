@@ -20,6 +20,7 @@
           </a>
           <div class="nav-links">
             <a href="#destinations">Play</a>
+            <button class="shop-nav-button" id="shop-open" type="button">🔧 Auto Shop</button>
             <button class="sound-button" id="sound-toggle" type="button" aria-pressed="false">🔊 Sound on</button>
           </div>
         </nav>
@@ -77,13 +78,27 @@
         <header class="game-hud">
           <button class="hud-back" id="back-home" type="button" aria-label="Return to home">← <span>Exit drive</span></button>
           <div class="hud-location"><span class="hud-location-icon" id="hud-icon">🌳</span><div><small>YOU ARE EXPLORING</small><strong id="hud-location">Maple Park</strong></div></div>
-          <div class="hud-stats"><div><span class="stat-icon">✦</span><strong id="star-count">0</strong><small>stars</small></div><div><span class="stat-icon">◷</span><strong id="drive-time">00:00</strong><small>drive time</small></div></div>
+          <div class="hud-stats"><div><span class="stat-icon">✦</span><strong id="star-count">0</strong><small>stars</small></div><div><span class="stat-icon">◷</span><strong id="drive-time">00:00</strong><small>drive time</small></div><button class="hud-shop-button" id="game-shop-open" type="button">🔧 Shop</button></div>
         </header>
         <div class="game-tip" id="game-tip"><span>☀</span><div><strong>Welcome, driver!</strong><br /><span>Use <b>WASD</b> or your arrow keys to cruise around.</span></div><button id="dismiss-tip" type="button" aria-label="Dismiss tip">×</button></div>
         <div class="interaction-toast" id="interaction-toast"><span id="toast-icon">✦</span><span id="toast-text">You found something!</span></div>
-        <div class="game-controls"><div class="control-cluster"><span class="key key-up">▲</span><div><span class="key">◀</span><span class="key">▼</span><span class="key">▶</span></div></div><span class="controls-label">Drive around</span><button id="game-sound-toggle" class="round-hud-button" type="button" aria-label="Toggle sound">🔊</button></div>
+        <div class="game-controls"><div class="control-cluster"><span class="key key-up">▲</span><div><span class="key">◀</span><span class="key">▼</span><span class="key">▶</span></div></div><span class="controls-label">Drive around · drag to look</span><button id="game-sound-toggle" class="round-hud-button" type="button" aria-label="Toggle sound">🔊</button></div>
+      </section>
+      <section class="shop-modal" id="shop-modal" hidden aria-labelledby="shop-title" role="dialog" aria-modal="true">
+        <div class="shop-panel">
+          <button class="shop-close" id="shop-close" type="button" aria-label="Close auto shop">×</button>
+          <div class="shop-heading"><div><p class="section-kicker">Make it yours</p><h2 id="shop-title">Sunny Side Auto Shop</h2><p>Spend your stars on a fresh look for your ride.</p></div><div class="shop-balance"><span>✦</span><strong id="shop-stars">0</strong><small>stars</small></div></div>
+          <div class="shop-grid">
+            <button class="shop-item selected owned" data-customization="classic" type="button"><span class="shop-swatch swatch-classic"></span><strong>Classic Coral</strong><small>Already yours</small><span class="shop-item-check">✓</span></button>
+            <button class="shop-item" data-customization="mint" type="button"><span class="shop-swatch swatch-mint"></span><strong>Minty Fresh</strong><small><b>✦ 3</b> stars</small><span class="shop-item-check">✓</span></button>
+            <button class="shop-item" data-customization="sunset" type="button"><span class="shop-swatch swatch-sunset"></span><strong>Sunset Pop</strong><small><b>✦ 5</b> stars</small><span class="shop-item-check">✓</span></button>
+            <button class="shop-item" data-customization="violet" type="button"><span class="shop-swatch swatch-violet"></span><strong>Violet Zoom</strong><small><b>✦ 8</b> stars</small><span class="shop-item-check">✓</span></button>
+          </div>
+          <p class="shop-message" id="shop-message" aria-live="polite">Choose a style to get started.</p>
+        </div>
       </section>
     </main>
-    <script type="module" src="game.js"></script>
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="game.js"></script>
   </body>
 </html>
